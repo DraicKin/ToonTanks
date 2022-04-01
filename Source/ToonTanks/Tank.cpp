@@ -5,7 +5,6 @@
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Tank.h"
-#include "DrawDebugHelpers.h"
 
 ATank::ATank()
 {
@@ -22,6 +21,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
     PlayerInputComponent -> BindAxis(TEXT("MoveForward"), this, &ATank::Move);
     PlayerInputComponent -> BindAxis(TEXT("Turn"), this, &ATank::Turn);
+    PlayerInputComponent -> BindAction(TEXT("Fire"), IE_Pressed, this, &ATank::Fire);
 }
 
 // Called when the game starts or when spawned
@@ -41,8 +41,6 @@ void ATank::Tick(float DeltaTime)
         PlayercontrollerRef -> GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility,
             false, 
             Hit);  
-
-        DrawDebugSphere(GetWorld(), Hit.ImpactPoint, 15.f, 12, FColor::Cyan);   
         RotateTurret(Hit.ImpactPoint);   
     }
 }
