@@ -18,6 +18,8 @@ public:
 	UPROPERTY(EditInstanceOnly, BlueprintReadWrite)
 	FString PawnName = TEXT("Kit");
 
+	void HandlePawnDeath();
+
 protected:
 	void RotateTurret(FVector LookAtTarget);
 	void Fire();

@@ -60,3 +60,10 @@ void ATank::Turn(float Value)
     DeltaRotation.Yaw = Value * DeltaTime * TurnRate;
     AddActorLocalRotation(DeltaRotation, true);
 }
+
+void ATank::HandlePawnDeath()
+{
+    Super::HandlePawnDeath();
+    SetActorHiddenInGame(true);
+    SetActorTickEnabled(false);
+}

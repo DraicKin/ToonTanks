@@ -31,6 +31,10 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	class UProjectileMovementComponent* ProjectileMove;
 
+	UPROPERTY(EditAnywhere)
+	float BaseDamage = 50.f;
+
 	UFUNCTION()
-	void OnHit();
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, 
+				FVector NormalImpulse, const FHitResult& Hit);
 };

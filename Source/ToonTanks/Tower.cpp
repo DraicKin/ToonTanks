@@ -35,3 +35,9 @@ bool ATower::IfTankInFireRange()
     if (Tank && FVector::Distance(GetActorLocation(), Tank -> GetActorLocation()) < FireRange) return true;     
     return false;
 }
+
+void ATower::HandlePawnDeath()
+{
+    Super::HandlePawnDeath();
+    Destroy();
+}
