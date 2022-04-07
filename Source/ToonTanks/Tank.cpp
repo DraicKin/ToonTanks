@@ -66,4 +66,5 @@ void ATank::HandlePawnDeath()
     Super::HandlePawnDeath();
     SetActorHiddenInGame(true);
     SetActorTickEnabled(false);
+    bAlive = false;
 }

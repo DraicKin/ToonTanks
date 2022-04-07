@@ -28,6 +28,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	void HandlePawnDeath();
+	bool bAlive = true;
 
 protected:
 	// Called when the game starts or when spawned

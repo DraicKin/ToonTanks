@@ -36,4 +36,13 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<class AProjectile> ProjectileClass;
+
+	UPROPERTY(EditAnywhere)
+	UParticleSystem* BlowUpParticles; 
+
+	UPROPERTY(EditAnywhere)
+	USoundBase* DeathSound;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UCameraShakeBase> DeathCameraShakeClass;
 };
